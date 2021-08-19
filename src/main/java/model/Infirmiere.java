@@ -22,7 +22,7 @@ public class Infirmiere extends AccessDB {
 			Statement statement = this.connexion().createStatement();
 			ResultSet result;
 			try {
-				result = statement.executeQuery("SELECT * from infirmiere");
+				result = statement.executeQuery("SELECT * from infirmiere left join adresse on infirmiere.adresse_id = adresse.id");
 				
 				while(result.next()) {
 					infirmieres.add(new InfirmiereEntity(

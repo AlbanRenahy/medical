@@ -15,11 +15,20 @@
 	<tr>
 	<th scope="row"> nom </th>
 	<th scope="row"> prenom </th>
+	<th scope="row"> numeroProfessionnel </th>
+	<th scope="row"> telPro </th>
+	<th scope="row"> telPerso </th>
+	<th scope="row"> adresse </th>
+	
 	</tr>
 	<c:forEach items="${ infirmieres }" var="infirmiere">
 	<tr>
 	<td> ${ infirmiere.nom } </td>
 	<td> ${ infirmiere.prenom } </td>
+	<td> ${ infirmiere.numeroProfessionnel } </td>
+	<td> ${ infirmiere.telPro } </td>
+	<td> ${ infirmiere.telPerso } </td>
+	<td> ${ infirmiere.adresse_id } </td>
 	<td> <a href="redirect?id=${ infirmiere.id }" class="btn btn-success btn sn">voir</a> </td>
 	</tr>
 	</c:forEach>
