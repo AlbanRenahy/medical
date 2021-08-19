@@ -32,7 +32,11 @@ public class Infirmiere extends AccessDB {
 							result.getString("nom"),
 							result.getString("prenom"),
 							result.getInt("telPro"),
-							result.getInt("telPerso")
+							result.getInt("telPerso"),
+							result.getInt("numero"),
+							result.getString("rue"),
+							result.getInt("cp"),
+							result.getString("ville")
 							));
 				}
 			} catch (SQLException e) {

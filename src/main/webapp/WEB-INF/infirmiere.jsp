@@ -28,7 +28,7 @@
 	<td> ${ infirmiere.numeroProfessionnel } </td>
 	<td> ${ infirmiere.telPro } </td>
 	<td> ${ infirmiere.telPerso } </td>
-	<td> ${ infirmiere.adresse_id } </td>
+	<td> ${ infirmiere.numero } ${ infirmiere.rue } ${ infirmiere.cp } ${ infirmiere.ville } </td>
 	<td> <a href="redirect?id=${ infirmiere.id }" class="btn btn-success btn sn">voir</a> </td>
 	</tr>
 	</c:forEach>
