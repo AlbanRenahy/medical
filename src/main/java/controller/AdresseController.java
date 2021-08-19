@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.AdresseEntity;
+import model.Adresse;
+
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class AdresseController
  */
-@WebServlet("/helloworld")
-public class HelloWorld extends HttpServlet {
+@WebServlet(name = "Adresse", urlPatterns = { "/adresse" })
+public class AdresseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloWorld() {
+    public AdresseController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +30,17 @@ public class HelloWorld extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    // request: ce que je récupère
-    // response: ce que je renvoie
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("message", "message depuis l'attibut");
-		request.getRequestDispatcher("WEB-INF/demo.jsp").forward(request,  response);
-			}
+		Adresse con = new Adresse("jdbc:mysql://localhost:3306/medical", "root", "root");
+		try {
+		List<AdresseEntity> adresses = con.fetchAllAdresse();
+			request.setAttribute("adresses", adresses);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("WEB-INF/adresse.jsp").forward(request,  response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
