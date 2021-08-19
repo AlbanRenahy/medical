@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Test depuis le JSP</title>
+<title>Coucou l'appli</title>
 </head>
 <body>
 	<p> "${message}" </p>
