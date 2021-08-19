@@ -21,18 +21,25 @@ public class Patient extends AccessDB {
 			Statement statement = this.connexion().createStatement();
 			ResultSet result;
 			try {
-				result = statement.executeQuery("SELECT * from patient");
+				result = statement.executeQuery("select patient.id,patient.nom,patient.prenom, patient.dateDeNaissance, patient.sexe, patient.numeroSecuriteSocial, adresse.numero, adresse.rue, adresse.cp, adresse.ville, infirmiere.nom AS nomInfirmiere, infirmiere.prenom AS prenomInfirmiere from patient left join adresse on patient.adresse_id= adresse.id left join infirmiere on patient.infirmiere_id= infirmiere.id;");
+				
 				
 				while(result.next()) {
 					patients.add(new PatientEntity(
 							result.getInt("id"),
-							result.getInt("adresse_id"),
-							result.getInt("infirmiere_id"),
 							result.getString("nom"),
 							result.getString("prenom"),
 							result.getString("dateDeNaissance"),
 							result.getString("sexe"),
-							result.getInt("numeroSecuriteSocial")
+							result.getInt("numeroSecuriteSocial"),
+							result.getString("numero"),
+							result.getString("rue"),
+							result.getInt("cp"),
+							result.getString("ville"),
+							result.getString("nomInfirmiere"),
+							result.getString("prenomInfirmiere")
+							
+							
 							));
 				}
 			} catch (SQLException e) {
