@@ -2,7 +2,9 @@ package controller;
 
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,28 +50,52 @@ public class PatientController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String dateDeNaissance = request.getParameter("dateDeNaissance");
-		String sexe = request.getParameter("sexe");
-		String numeroSecuriteSocial = request.getParameter("numeroSecuriteSocial");
-		String numero = request.getParameter("numero");
-		String rue = request.getParameter("rue");
-		String cp = request.getParameter("cp");
-		String ville = request.getParameter("ville");
-		
-		
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
-		request.setAttribute("dateDeNaissance", dateDeNaissance);
-		request.setAttribute("sexe", sexe);
-		request.setAttribute("numeroSecuriteSocial", numeroSecuriteSocial);
-		request.setAttribute("numero", numero);
-		request.setAttribute("rue", rue);
-		request.setAttribute("cp", cp);
-		request.setAttribute("ville", ville);
-		
-		request.getRequestDispatcher("WEB-INF/patient.jsp").forward(request, response);
+		Patient con = new Patient("jdbc:mysql://localhost:3306/medical", "root", "root");
+        int adresse = 0;
+       
+        //Données adresse patient
+        String numero = request.getParameter("numero");
+        String rue = request.getParameter("rue");
+        int cp = Integer.parseInt(request.getParameter("cp"));
+        String ville = request.getParameter("ville");
+        //System.out.println(cp);
+               
+        try {
+            //con.addPatient(nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, adresse_id, infirmiere_id);
+            con.addAdresse(numero, rue, cp, ville);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+               
+        //Données patient
+        String nom = request.getParameter("nomAdd");
+        String prenom = request.getParameter("prenomAdd");
+        String sexe = request.getParameter("sexeAdd");
+        String dateDeNaissance = request.getParameter("dateDeNaissanceAdd");
+        int numeroSecuriteSocial = Integer.parseInt(request.getParameter("numeroSecuriteSocialAdd"));
+        try {
+            HashMap<Integer,String> adresses = con.fetchAllAdresses();
+            for(Entry<Integer,String> entry : adresses.entrySet())
+            {
+                if(entry.getValue().equals(numero+" "+rue+" "+cp+" "+ville))
+                {
+                    adresse = entry.getKey();
+                }
+            }
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        int adresse_id = adresse;
+        int infirmiere_id = Integer.parseInt(request.getParameter("infirmiere_id"));
+       
+        try {
+            con.addPatient(nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, adresse_id, infirmiere_id);
+            //con.addAdresse(numero, rue, cp, ville);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+   
+        response.sendRedirect("patient");
 	}
-
 }

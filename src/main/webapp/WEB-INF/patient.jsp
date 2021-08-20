@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<div class="text-center"><h1>Gestion des patients</h1></div>
+
 	<table class="table">
 	<tr>
 	<th scope="row"> nom </th>
@@ -48,6 +50,44 @@
 	</tr>
 	</c:forEach>
 	</table>
-	${ patients }
+	
+	<h2>Patients</h2>
+	<form method="post" action="user">
+	<label class="form-label"> nom
+	</label>
+	<input type="text" name="nom" >
+	<label class="form-label"> prenom
+	</label>
+	<input type="text" name="prenom" >
+	<label class="form-label"> date de naissance
+	</label>
+	<input type="text" name="dateDeNaissance" >
+	<label class="form-label"> sexe
+	</label>
+	<input type="text" name="sexe" >
+	<label class="form-label"> numeroSecuriteSociale
+	</label>
+	<input type="text" name="numeroSecuriteSocial" >
+	</form>
+	
+	<h2>Adresses</h2>
+	<form>
+	<label class="form-label"> numéro de rue
+	</label>
+	<input type="text" name="numero" >
+	<label class="form-label"> rue
+	</label>
+	<input type="text" name="rue" >
+	<label class="form-label"> code postal
+	</label>
+	<input type="text" name="cp" >
+	<label class="form-label"> ville
+	</label>
+	<input type="text" name="ville" >
+	<div class="text-center">
+	<input class="btn btn-primary" type="submit" name="envoyer" >
+	</form>
+	</div>
+	</div>
 </body>
 </html>
