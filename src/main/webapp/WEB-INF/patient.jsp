@@ -45,6 +45,7 @@
 	<td> ${ patient.prenomInfirmiere} </td>
 	
 	<td> <a href="redirect?id=${ patient.id }" class="btn btn-success btn sn">voir</a> </td>
+	<td> <a href="deletePatient?id=${ patient.id }" class="btn btn-danger btn sn">supp</a> </td>
 	</tr>
 	</c:forEach>
 	</table>
