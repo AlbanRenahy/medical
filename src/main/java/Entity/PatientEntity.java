@@ -18,6 +18,22 @@ public class PatientEntity {
 		private String nomInfirmiere;
 		private String prenomInfirmiere;
 		
+		public PatientEntity(int id, String nom, String prenom,
+				String dateDeNaissance, String sexe, int numeroSecuriteSocial, String numero, String rue, int cp, String ville,String nomInfirmiere, String prenomInfirmiere) {
+			super();
+			this.id = id;
+			this.nom = nom;
+			this.prenom = prenom;
+			this.dateDeNaissance = dateDeNaissance;
+			this.sexe = sexe;
+			this.numeroSecuriteSocial = numeroSecuriteSocial;
+			this.numero= numero;
+			this.rue= rue;
+			this.cp=cp;
+			this.ville=ville;
+			this.nomInfirmiere=nomInfirmiere;
+			this.prenomInfirmiere=prenomInfirmiere;
+		}
 		
 		public String getNumero() {
 			return numero;
@@ -106,21 +122,6 @@ public class PatientEntity {
 		}
 		
 		
-		public PatientEntity(int id, String nom, String prenom,
-				String dateDeNaissance, String sexe, int numeroSecuriteSocial, String numero, String rue, int cp, String ville,String nomInfirmiere, String prenomInfirmiere) {
-			super();
-			this.id = id;
-			this.nom = nom;
-			this.prenom = prenom;
-			this.dateDeNaissance = dateDeNaissance;
-			this.sexe = sexe;
-			this.numeroSecuriteSocial = numeroSecuriteSocial;
-			this.numero= numero;
-			this.rue= rue;
-			this.cp=cp;
-			this.ville=ville;
-			this.nomInfirmiere=nomInfirmiere;
-			this.prenomInfirmiere=prenomInfirmiere;
-		}
+
 	}
 
