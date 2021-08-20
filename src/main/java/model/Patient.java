@@ -38,8 +38,6 @@ public class Patient extends AccessDB {
 							result.getString("ville"),
 							result.getString("nomInfirmiere"),
 							result.getString("prenomInfirmiere")
-							
-							
 							));
 				}
 			} catch (SQLException e) {
