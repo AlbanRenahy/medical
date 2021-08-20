@@ -52,42 +52,43 @@
 	</table>
 	
 	<h2>Patients</h2>
-	<form method="post" action="user">
+	<form method="post" action="patient">
 	<label class="form-label"> nom
 	</label>
-	<input type="text" name="nom" >
+	<input type="text" name="nom" value="Michu" >
 	<label class="form-label"> prenom
 	</label>
-	<input type="text" name="prenom" >
+	<input type="text" name="prenom" value="Corine" >
 	<label class="form-label"> date de naissance
 	</label>
-	<input type="text" name="dateDeNaissance" >
+	<input type="text" name="dateDeNaissance" value="1999-01-11" >
 	<label class="form-label"> sexe
 	</label>
-	<input type="text" name="sexe" >
+	<input type="text" name="sexe" value="Femme" >
 	<label class="form-label"> numeroSecuriteSociale
 	</label>
-	<input type="text" name="numeroSecuriteSocial" >
-	</form>
-	
-	<h2>Adresses</h2>
-	<form>
+	<input type="text" name="numeroSecuriteSocial" value="12" >
 	<label class="form-label"> numéro de rue
 	</label>
-	<input type="text" name="numero" >
+	<input type="text" name="numero" value="42"  >
 	<label class="form-label"> rue
 	</label>
-	<input type="text" name="rue" >
+	<input type="text" name="rue" value="rue du lion" >
 	<label class="form-label"> code postal
 	</label>
-	<input type="text" name="cp" >
+	<input type="text" name="cp" value="80000" >
 	<label class="form-label"> ville
 	</label>
-	<input type="text" name="ville" >
+	<input type="text" name="ville" value="Amiens" >
+	<label class="form-label" for="infirmiere"> infirmière
+	</label>
+	<select name="infirmiere_id" id="infirmiere" >
+	<c:forEach items="${ infirmieres }" var="infirmiere">
+	<option value="${ infirmiere.id }">${ infirmiere.nom }</option>
+	</c:forEach>
 	<div class="text-center">
 	<input class="btn btn-primary" type="submit" name="envoyer" >
+	</div>
 	</form>
-	</div>
-	</div>
 </body>
 </html>

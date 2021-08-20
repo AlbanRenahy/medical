@@ -62,12 +62,8 @@ public class Patient extends AccessDB {
 	        try {
 	            
 	            //statement.executeUpdate("INSERT INTO adresse(numero,rue,cp,ville) "+ "values("+numero+","+rue+","+cp+","+ville+")");
-
-	 
-
 	            //statement.executeUpdate("INSERT INTO adresse(numero,rue,cp,ville) "
 	                    //+ "values("+numero+","+rue+","+cp+","+ville+")");
-	            
 	            //statement.execute("INSERT INTO adresse VALUES(`numeroAdresse`,`rueAdresse`,`int(cpAdresse)`,`villeAdresse`)");
 
 	 

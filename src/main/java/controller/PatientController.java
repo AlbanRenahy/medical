@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
+import model.Infirmiere;
 import model.Patient;
 
 /**
@@ -36,9 +38,12 @@ public class PatientController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Patient con = new Patient("jdbc:mysql://localhost:3306/medical", "root", "root");
+		Infirmiere conn = new Infirmiere("jdbc:mysql://localhost:3306/medical", "root", "root");
 		try {
 			List<PatientEntity> patients = con.fetchAllPatient();
+			List<InfirmiereEntity> infirmieres = conn.fetchAllInfirmiere();
 			request.setAttribute("patients", patients);
+			request.setAttribute("infirmieres", infirmieres);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -52,11 +57,12 @@ public class PatientController extends HttpServlet {
 		// TODO Auto-generated method stub
 		Patient con = new Patient("jdbc:mysql://localhost:3306/medical", "root", "root");
         int adresse = 0;
-       
         //Données adresse patient
         String numero = request.getParameter("numero");
         String rue = request.getParameter("rue");
+        System.out.println(request.getParameter("cp"));
         int cp = Integer.parseInt(request.getParameter("cp"));
+        System.out.println(cp);
         String ville = request.getParameter("ville");
         //System.out.println(cp);
                
@@ -68,11 +74,14 @@ public class PatientController extends HttpServlet {
         }
                
         //Données patient
-        String nom = request.getParameter("nomAdd");
-        String prenom = request.getParameter("prenomAdd");
-        String sexe = request.getParameter("sexeAdd");
-        String dateDeNaissance = request.getParameter("dateDeNaissanceAdd");
-        int numeroSecuriteSocial = Integer.parseInt(request.getParameter("numeroSecuriteSocialAdd"));
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String sexe = request.getParameter("sexe");
+        System.out.println(request.getParameter("dateDeNaissance"));
+        String dateDeNaissance = request.getParameter("dateDeNaissance");
+//        System.out.println("coucou");
+        int numeroSecuriteSocial = Integer.parseInt(request.getParameter("numeroSecuriteSocial"));
+        System.out.println(numeroSecuriteSocial);
         try {
             HashMap<Integer,String> adresses = con.fetchAllAdresses();
             for(Entry<Integer,String> entry : adresses.entrySet())
@@ -87,7 +96,9 @@ public class PatientController extends HttpServlet {
             e1.printStackTrace();
         }
         int adresse_id = adresse;
+        System.out.println("infirmiere_id");
         int infirmiere_id = Integer.parseInt(request.getParameter("infirmiere_id"));
+        System.out.println(infirmiere_id);
        
         try {
             con.addPatient(nom, prenom, sexe, dateDeNaissance, numeroSecuriteSocial, adresse_id, infirmiere_id);
@@ -97,5 +108,6 @@ public class PatientController extends HttpServlet {
         }
    
         response.sendRedirect("patient");
+        
 	}
 }
