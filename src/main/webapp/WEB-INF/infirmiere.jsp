@@ -30,6 +30,8 @@
 	<td> ${ infirmiere.telPerso } </td>
 	<td> ${ infirmiere.numero } ${ infirmiere.rue } ${ infirmiere.cp } ${ infirmiere.ville } </td>
 	<td> <a href="redirect?id=${ infirmiere.id }" class="btn btn-success btn sn">voir</a> </td>
+	<td> <a href="deleteInfirmiere?id=${ infirmiere.id }" class="btn btn-danger btn sn">supp</a> </td>
+	
 	</tr>
 	</c:forEach>
 	</table>
