@@ -48,7 +48,28 @@ public class PatientController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String dateDeNaissance = request.getParameter("dateDeNaissance");
+		String sexe = request.getParameter("sexe");
+		String numeroSecuriteSocial = request.getParameter("numeroSecuriteSocial");
+		String numero = request.getParameter("numero");
+		String rue = request.getParameter("rue");
+		String cp = request.getParameter("cp");
+		String ville = request.getParameter("ville");
+		
+		
+		request.setAttribute("nom", nom);
+		request.setAttribute("prenom", prenom);
+		request.setAttribute("dateDeNaissance", dateDeNaissance);
+		request.setAttribute("sexe", sexe);
+		request.setAttribute("numeroSecuriteSocial", numeroSecuriteSocial);
+		request.setAttribute("numero", numero);
+		request.setAttribute("rue", rue);
+		request.setAttribute("cp", cp);
+		request.setAttribute("ville", ville);
+		
+		request.getRequestDispatcher("WEB-INF/patient.jsp").forward(request, response);
 	}
 
 }

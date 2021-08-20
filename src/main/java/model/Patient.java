@@ -1,12 +1,15 @@
 package model;
 import Entity.PatientEntity;
 
-
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.tomcat.jdbc.pool.DataSourceFactory;
+
 
 
 public class Patient extends AccessDB {
@@ -47,5 +50,11 @@ public class Patient extends AccessDB {
 			}
 			
 			return patients;
+		}
+		
+		@Override
+		public boolean save(Patient patient) throws SQLException {
+			String sql ="INSERT into patient (nom, prenom, dateDeNaissance, sexe, numeroSecuriteSocial) VALUES ()";
+			boolean rowInserted = false;
 		}
 	}
