@@ -1,25 +1,29 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.InfirmiereModel;
+import model.PatientModel;
 
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class DeleteInfirmiereController
  */
-@WebServlet("/helloworld")
-public class HelloWorld extends HttpServlet {
+@WebServlet("/deleteInfirmiere")
+public class DeleteInfirmiereController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloWorld() {
+    public DeleteInfirmiereController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +31,24 @@ public class HelloWorld extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    // request: ce que je récupère
-    // response: ce que je renvoie
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setAttribute("message", "message depuis l'attibut");
-		request.getRequestDispatcher("WEB-INF/demo.jsp").forward(request,  response);
-			}
+		HttpSession session = request.getSession(true);
+		InfirmiereModel con = new InfirmiereModel();
+		session.setAttribute("id", request.getParameter("id"));
+		String idP = request.getParameter("id");
+
+		int id = Integer.parseInt(idP);
+		try {
+			con.deleteInfirmiere(id);;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		response.sendRedirect("liste");
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -9,20 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Entity.AdresseEntity;
-import model.Adresse;
+import Entity.DeplacementEntity;
+import Entity.InfirmiereEntity;
+import Entity.PatientEntity;
+import model.DeplacementModel;
+import model.InfirmiereModel;
+import model.PatientModel;
 
 /**
- * Servlet implementation class AdresseController
+ * Servlet implementation class PatientController
  */
-@WebServlet(name = "Adresse", urlPatterns = { "/adresse" })
-public class AdresseController extends HttpServlet {
+@WebServlet(name = "List", urlPatterns = { "/liste" })
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdresseController() {
+    public ListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +35,27 @@ public class AdresseController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Adresse con = new Adresse("jdbc:mysql://localhost:3306/medical", "root", "root");
+		
+		PatientModel con = new PatientModel();
+		InfirmiereModel inf = new InfirmiereModel();
+		DeplacementModel dep = new DeplacementModel();
+		
 		try {
-		List<AdresseEntity> adresses = con.fetchAllAdresse();
-			request.setAttribute("adresses", adresses);
-		} catch(Exception e) {
+			List<PatientEntity> patients = con.fetchAllPatient();
+			request.setAttribute("patients", patients);
+
+			List<InfirmiereEntity> infirmieres = inf.fetchAllInfirmiere();
+			request.setAttribute("infirmieres", infirmieres);
+			
+			List<DeplacementEntity> deplacements = dep.fetchAllDeplacement();
+			request.setAttribute("deplacements", deplacements);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("WEB-INF/adresse.jsp").forward(request,  response);
+		
+		request.getRequestDispatcher("WEB-INF/liste.jsp").forward(request, response);
+		
 	}
 
 	/**
