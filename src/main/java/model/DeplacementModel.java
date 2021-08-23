@@ -48,6 +48,14 @@ public class DeplacementModel extends AccessDB {
 		return deplacements;
 	}
 	
+ DeleteDeplacement
+	public void deleteDeplacement(int id) throws SQLException, Exception {
+
+		Statement statement = this.connexion().createStatement();
+		try {
+			statement.executeUpdate("DELETE FROM deplacement WHERE id=" + id);
+
+
 	public DeplacementEntity oneDeplacement(int id) throws Exception { 
 
 		DeplacementEntity deplacement = new DeplacementEntity();
