@@ -43,7 +43,7 @@
 					<tr>
 						<td>${ patient.nom }</td>
 						<td>${ patient.prenom }</td>
-						<a href="addPatient">Créer<i class="fas fa-plus add"></i></a>
+						<td><a class="btn btn-primary btn-sm" href="addPatient">Créer<i class="fas fa-plus add"></i></a></td>
 						<td><a href="updatePatient?id=${patient.id}"
 							class="btn btn-success btn-sm">Modifier<i
 								class="bi bi-arrow-clockwise"></i></a>
@@ -71,7 +71,7 @@
 					<tr>
 						<td>${ infirmiere.nom }</td>
 						<td>${ infirmiere.prenom }</td>
-						<a href="addInfirmiere">Créer<i class="fas fa-plus add"></i></a>
+						<td><a class="btn btn-primary btn-sm" href="addInfirmiere">Créer<i class="fas fa-plus add"></i></a></td>
 						<td><a href="updateInfirmiere?id=${infirmiere.id}"
 							class="btn btn-success btn-sm">Modifier<i
 								class="bi bi-arrow-clockwise"></i></a>
@@ -107,7 +107,7 @@
 					<td>${ deplacement.cout } e</td>
 					<td>${ deplacement.nomInfirmiere }</td>
 					<td>${ deplacement.prenomInfirmiere }</td>
-					<a href="addDeplacement">Créer<i class="fas fa-plus add"></i></a>
+					<td><a class="btn btn-primary btn-sm" href="addDeplacement">Créer<i class="fas fa-plus add"></i></a></td>
 					<td><a href="updateDeplacement?id=${deplacement.id}"
 						class="btn btn-success btn-sm">Modifier<i
 							class="bi bi-arrow-clockwise"></i></a>
