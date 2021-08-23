@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 import java.util.List;
 
@@ -10,20 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Entity.DeplacementEntity;
+import Entity.InfirmiereEntity;
 import Entity.PatientEntity;
-import model.Patient;
+import model.DeplacementModel;
+import model.InfirmiereModel;
+import model.PatientModel;
 
 /**
  * Servlet implementation class PatientController
  */
-@WebServlet(name = "Patient", urlPatterns = { "/patient" })
-public class PatientController extends HttpServlet {
+@WebServlet(name = "List", urlPatterns = { "/liste" })
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PatientController() {
+    public ListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +35,27 @@ public class PatientController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Patient con = new Patient("jdbc:mysql://localhost:3306/medical", "root", "root");
+		
+		PatientModel con = new PatientModel();
+		InfirmiereModel inf = new InfirmiereModel();
+		DeplacementModel dep = new DeplacementModel();
+		
 		try {
 			List<PatientEntity> patients = con.fetchAllPatient();
 			request.setAttribute("patients", patients);
-		} catch(Exception e) {
+
+			List<InfirmiereEntity> infirmieres = inf.fetchAllInfirmiere();
+			request.setAttribute("infirmieres", infirmieres);
+			
+			List<DeplacementEntity> deplacements = dep.fetchAllDeplacement();
+			request.setAttribute("deplacements", deplacements);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("WEB-INF/patient.jsp").forward(request,  response);
+		
+		request.getRequestDispatcher("WEB-INF/liste.jsp").forward(request, response);
+		
 	}
 
 	/**
