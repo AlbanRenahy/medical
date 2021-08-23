@@ -1,8 +1,9 @@
 package Entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public class DeplacementEntity  {
+public class DeplacementEntity {
 
 	private int id;
 	private String nomPatient;
@@ -11,11 +12,12 @@ public class DeplacementEntity  {
 	private double cout;
 	private String nomInfirmiere;
 	private String prenomInfirmiere;
-	
+
 	public DeplacementEntity() {
 	};
-	
-	public DeplacementEntity(int id, String nomPatient, String prenomPatient, Date date, double cout, String nomInfirmiere, String prenomInfirmiere) {
+
+	public DeplacementEntity(int id, String nomPatient, String prenomPatient, Date date, double cout,
+			String nomInfirmiere, String prenomInfirmiere) {
 		super();
 		this.id = id;
 		this.nomPatient = nomPatient;
@@ -57,7 +59,6 @@ public class DeplacementEntity  {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 
 	public String getNomInfirmiere() {
 		return nomInfirmiere;

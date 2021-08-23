@@ -87,6 +87,7 @@
 	<div class="container bloc blocDeplacement">
 		<div class="myHead">
 			<h2>Les déplacements</h2>
+				<a href="addDeplacement">Créer<i class="fas fa-plus add"></i></a>
 		</div>
 		<table class="table tableDep">
 			<tr>
