@@ -5,10 +5,12 @@ import java.util.Date;
 public class DeplacementEntity  {
 
 	private int id;
+	private int patient_id;
 	private String nomPatient;
 	private String prenomPatient;
 	private Date date;
 	private double cout;
+	private int infirmiere_id;
 	private String nomInfirmiere;
 	private String prenomInfirmiere;
 	
@@ -82,4 +84,22 @@ public class DeplacementEntity  {
 	public void setCout(double cout) {
 		this.cout = cout;
 	}
+
+	public int getPatient_id() {
+		return patient_id;
+	}
+
+	public void setPatient_id(int patient_id) {
+		this.patient_id = patient_id;
+	}
+
+	public int getInfirmiere_id() {
+		return infirmiere_id;
+	}
+
+	public void setInfirmiere_id(int infirmiere_id) {
+		this.infirmiere_id = infirmiere_id;
+	}
+	
+	
 }

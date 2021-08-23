@@ -10,7 +10,9 @@
 <title>Modifier une infirmiere</title>
 </head>
 <body>
-	<h1>Modifier l'infirmiere ${infirmiere.nom} ${infirmiere.prenom} </h1>
+<div class="text-center">
+	<h1 style="color: white; background-color: green;">Modifier l'infirmiere ${infirmiere.nom} ${infirmiere.prenom} </h1>
+	</div>
 	
 	<form method="POST" action="updateInfirmiere">
 		<div class="mb-3">
