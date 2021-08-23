@@ -36,7 +36,7 @@ public class UpdateInfirmiereController extends HttpServlet {
 
 		request.getRequestDispatcher("WEB-INF/updateInfirmiere.jsp").forward(request, response);
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -13,7 +13,9 @@
 <title>Ajouter un infirmier</title>
 </head>
 <body>
-	<h1>Ajouter un(e) infirmier(e)</h1>
+	<div class="text-center">
+	<h1 style="color: white; background-color: green;">Ajouter un(e) infirmier(e)</h1>
+</div>
 	
 	<form method="POST" action="addInfirmiere">
 		<div class="mb-3 divLab">

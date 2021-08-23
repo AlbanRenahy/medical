@@ -13,7 +13,9 @@
 
 </head>
 <body>
-	<h2>Ajouter un patient</h2>
+	<div class="text-center">
+	<h1 style="color: white; background-color: green;">Ajouter un(e) patient(e)</h1>
+</div>
 	
 	<form method="post" action="addPatient">
 		<div class= "mb-3">
