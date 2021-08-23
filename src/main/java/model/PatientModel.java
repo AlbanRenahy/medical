@@ -23,7 +23,7 @@ public class PatientModel extends AccessDB {
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("SELECT * FROM patient");
+			result = statement.executeQuery("SELECT * from patient left join adresse on patient.adresse_id = adresse.id;");
 			while(result.next()) {
 				patients.add(new PatientEntity(
 						result.getInt("id"),
@@ -33,7 +33,11 @@ public class PatientModel extends AccessDB {
 						result.getString("prenom"),
 						result.getString("dateDeNaissance"),
 						result.getString("sexe"),
-						result.getInt("numeroSecuriteSocial")
+						result.getInt("numeroSecuriteSocial"),
+						result.getString("numero"), 
+						result.getString("rue"),
+						result.getInt("cp"), 
+						result.getString("ville")
 						));	
 			}
 

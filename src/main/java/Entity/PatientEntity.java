@@ -10,12 +10,17 @@ public class PatientEntity {
 	private String dateDeNaissance;
 	private String sexe;
 	private int numeroSecuriteSocial;
+	private String numero;
+	private String rue;
+	private int cp;
+	private String ville;
+	
 	
 	public PatientEntity() {
 	};
 	
 	public PatientEntity(int id, int adresse_id, int infirmiere_id, String nom, String prenom, String dateDeNaissance,
-			String sexe, int numeroSecuriteSocial) {
+			String sexe, int numeroSecuriteSocial, String numero, String rue, int cp, String ville ) {
 		super();
 		this.id = id;
 		this.adresse_id = adresse_id;
@@ -25,6 +30,10 @@ public class PatientEntity {
 		this.dateDeNaissance = dateDeNaissance;
 		this.sexe = sexe;
 		this.numeroSecuriteSocial = numeroSecuriteSocial;
+		this.numero= numero;
+		this.rue= rue;
+		this.cp=cp;
+		this.ville=ville;
 	}
 
 	public int getId() {
@@ -89,6 +98,38 @@ public class PatientEntity {
 
 	public void setNumeroSecuriteSocial(int numeroSecuriteSocial) {
 		this.numeroSecuriteSocial = numeroSecuriteSocial;
+	}
+	
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getRue() {
+		return rue;
+	}
+
+	public void setRue(String rue) {
+		this.rue = rue;
+	}
+
+	public int getCp() {
+		return cp;
+	}
+
+	public void setCp(int cp) {
+		this.cp = cp;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	
 	

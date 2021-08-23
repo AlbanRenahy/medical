@@ -25,7 +25,9 @@
 </head>
 <body>
 
-	<h1>Listes</h1>
+<div class="text-center">
+	<h1 style="color: white; background-color: green;">Listes médicales</h1>
+</div>
 
 	<div class="mesListes">
 		<div class="container bloc blocPatients">
@@ -34,15 +36,21 @@
 			</div>
 			<table class="table">
 				<tr>
-					<th scope="row">nom</th>
-					<th scope="row">prenom</th>
-					<th scope="row"></th>
-					<th scope="row"></th>
+					<th scope="row">Nom</th>
+					<th scope="row">Prenom</th>
+					<th scope="row">Sexe</th>
+					<th scope="row">Date de naissance</th>
+					<th scope="row">Numéro de sécurité sociale</th>
+					<th scope="row">Adresse</th>
 				</tr>
 				<c:forEach items="${ patients }" var="patient">
 					<tr>
 						<td>${ patient.nom }</td>
 						<td>${ patient.prenom }</td>
+						<td>${ patient.sexe }</td>
+						<td>${ patient.dateDeNaissance }</td>
+						<td>${ patient.numeroSecuriteSocial }</td>
+						<td>${ patient.numero } ${patient.rue } ${patient.cp } ${patient.ville }</td>
 						<td><a class="btn btn-primary btn-sm" href="addPatient">Créer<i class="fas fa-plus add"></i></a></td>
 						<td><a href="updatePatient?id=${patient.id}"
 							class="btn btn-success btn-sm">Modifier<i
@@ -62,15 +70,21 @@
 			</div>
 			<table class="table">
 				<tr>
-					<th scope="row">nom</th>
-					<th scope="row">prenom</th>
-					<th scope="row"></th>
-					<th scope="row"></th>
+					<th scope="row">Nom</th>
+					<th scope="row">Prénom</th>
+					<th scope="row">Numéro professionnel</th>
+					<th scope="row">Téléphone pro</th>
+					<th scope="row">Téléphone perso</th>
+					<th scope="row">Adresse</th>
 				</tr>
 				<c:forEach items="${ infirmieres }" var="infirmiere">
 					<tr>
 						<td>${ infirmiere.nom }</td>
 						<td>${ infirmiere.prenom }</td>
+						<td>${ infirmiere.numeroProfessionnel }</td>
+						<td>${ infirmiere.telPro }</td>
+						<td>${ infirmiere.telPerso }</td>
+						<td>${ infirmiere.numero } ${ infirmiere.rue } ${ infirmiere.cp } ${ infirmiere.ville }</td>
 						<td><a class="btn btn-primary btn-sm" href="addInfirmiere">Créer<i class="fas fa-plus add"></i></a></td>
 						<td><a href="updateInfirmiere?id=${infirmiere.id}"
 							class="btn btn-success btn-sm">Modifier<i
