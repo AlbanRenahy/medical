@@ -96,6 +96,36 @@ public class DeplacementModel extends AccessDB {
 		}
 	}
 	
+	public void addDeplacement(int id, String nomPatient, String prenomPatient, Date date, double cout,
+			String nomInfirmiere, String prenomInfirmiere) throws Exception {
+		int patient_id = addPatient(nomPatient, prenomPatient);
+		int infirmiere_id = addInfirmiere(nomInfirmiere, prenomInfirmiere);
+
+		Statement statement = this.connexion().createStatement();
+		String query="SELECT" + patient_id + " FROM patient WHERE nom=" + nomPatient;
+		statement.executeQuery(query);
+
+		String query2 = "INSERT INTO deplacement (patient_id,date,cout, infirmiere_id) VALUES (" + patient_id
+				+ ",?,?,?)";
+
+		PreparedStatement pstmt = this.connexion().prepareStatement(query2);
+		pstmt.setObject(1, date);
+		pstmt.setDouble(2, cout);
+		pstmt.setInt(3, infirmiere_id);
+		pstmt.executeUpdate();
+		pstmt.close();
+	}
+	
+	private int addInfirmiere(String nomInfirmiere, String prenomInfirmiere) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private int addPatient(String nomPatient, String prenomPatient) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public void deleteDeplacement(int id) throws SQLException, Exception {
 
 		Statement statement = this.connexion().createStatement();
