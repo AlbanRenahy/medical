@@ -31,7 +31,6 @@
 		<div class="container bloc blocPatients">
 			<div class="myHead">
 				<h2 class="patients">Les patients</h2>
-				<a href="addPatient"><i class="fas fa-plus add"></i></a>
 			</div>
 			<table class="table">
 				<tr>
@@ -44,11 +43,12 @@
 					<tr>
 						<td>${ patient.nom }</td>
 						<td>${ patient.prenom }</td>
+						<a href="addPatient">Créer<i class="fas fa-plus add"></i></a>
 						<td><a href="updatePatient?id=${patient.id}"
-							class="btn btn-success btn-sm"><i
+							class="btn btn-success btn-sm">Modifier<i
 								class="bi bi-arrow-clockwise"></i></a>
 						<td><a href="deletePatient?id=${patient.id}"
-							class="btn btn-danger btn-sm"><i class="fas fa-times"></i> </a></td>
+							class="btn btn-danger btn-sm">Supprimer<i class="fas fa-times"></i> </a></td>
 
 					</tr>
 				</c:forEach>
@@ -58,7 +58,7 @@
 		<div class="container bloc blocInfirmieres">
 			<div class="myHead">
 				<h2>Les infirmier(e)s</h2>
-				<a href="addInfirmiere"><i class="fas fa-plus add"></i></a>
+				
 			</div>
 			<table class="table">
 				<tr>
@@ -71,11 +71,12 @@
 					<tr>
 						<td>${ infirmiere.nom }</td>
 						<td>${ infirmiere.prenom }</td>
+						<a href="addInfirmiere">Créer<i class="fas fa-plus add"></i></a>
 						<td><a href="updateInfirmiere?id=${infirmiere.id}"
-							class="btn btn-success btn-sm"><i
+							class="btn btn-success btn-sm">Modifier<i
 								class="bi bi-arrow-clockwise"></i></a>
 						<td><a href="deleteInfirmiere?id=${infirmiere.id}"
-							class="btn btn-danger btn-sm"><i class="fas fa-times"></i></a></td>
+							class="btn btn-danger btn-sm">Supprimer<i class="fas fa-times"></i></a></td>
 
 					</tr>
 				</c:forEach>
@@ -86,7 +87,6 @@
 	<div class="container bloc blocDeplacement">
 		<div class="myHead">
 			<h2>Les déplacements</h2>
-			<a href="addDeplacement"><i class="fas fa-plus add"></i></a>
 		</div>
 		<table class="table tableDep">
 			<tr>
@@ -107,12 +107,12 @@
 					<td>${ deplacement.cout } e</td>
 					<td>${ deplacement.nomInfirmiere }</td>
 					<td>${ deplacement.prenomInfirmiere }</td>
+					<a href="addDeplacement">Créer<i class="fas fa-plus add"></i></a>
 					<td><a href="updateDeplacement?id=${deplacement.id}"
-						class="btn btn-success btn-sm"><i
+						class="btn btn-success btn-sm">Modifier<i
 							class="bi bi-arrow-clockwise"></i></a>
 					<td><a href="deleteDeplacement?id=${deplacement.id}"
-						class="btn btn-danger btn-sm"><i class="fas fa-times"></i></a></td>
-
+						class="btn btn-danger btn-sm">Supprimer<i class="fas fa-times"></i></a></td>
 				</tr>
 			</c:forEach>
 		</table>
