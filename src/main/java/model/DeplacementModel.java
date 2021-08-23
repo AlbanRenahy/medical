@@ -95,4 +95,18 @@ public class DeplacementModel extends AccessDB {
 			this.connexion().close();
 		}
 	}
+	
+	public void deleteDeplacement(int id) throws SQLException, Exception {
+
+		Statement statement = this.connexion().createStatement();
+		try {
+			statement.executeUpdate("DELETE FROM deplacement WHERE id=" + id);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.connexion().close();
+		}
+
+	}
 }
