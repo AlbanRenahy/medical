@@ -46,6 +46,7 @@ public class AddPatientController extends HttpServlet {
 		}
 		request.setAttribute("infirmieres", infirmieres);
 		
+		
 		request.getRequestDispatcher("WEB-INF/add-patient.jsp").forward(request, response);
 		
 		
@@ -79,6 +80,6 @@ public class AddPatientController extends HttpServlet {
 		} catch (Exception e ){
 			e.printStackTrace();
 		}
-	}
+	} 
 
 }

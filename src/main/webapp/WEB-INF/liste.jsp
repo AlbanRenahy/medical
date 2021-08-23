@@ -130,6 +130,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<a class="btn btn-primary btn-sm" href="addDeplacement">Créer<i class="fas fa-plus add"></i></a>
 	</div>
 	<!-- JavaScript Bundle with Popper -->
 	<script

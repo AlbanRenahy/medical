@@ -35,7 +35,7 @@
 			<label> Patient :
 				<select class="form-select mySelect" aria-label="Default select example" name="idPatient">
 					<c:forEach items="${ patients }" var="patient">
-							<option selected value="${patient.id}" name="patient.id" >${patient.nom} ${patient.prenom}</option>
+							<option selected value="${patient.id}" name="patient_id" >${patient.nom} ${patient.prenom}</option>
 					</c:forEach>
 				</select>
 			</label>
@@ -59,7 +59,7 @@
 			<label> Infirmiere :
 				<select class="form-select mySelect" aria-label="Default select example" name="idInfirmiere">
 					<c:forEach items="${ infirmieres }" var="infirmiere">
-							<option selected value="${infirmiere.id}" name="infirmiere.id" >${infirmiere.nom} ${infirmiere.prenom}</option>
+							<option selected value="${infirmiere.id}" name="infirmiere_id" >${infirmiere.nom} ${infirmiere.prenom}</option>
 					</c:forEach>
 				</select>
 			</label>
