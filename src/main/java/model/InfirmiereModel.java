@@ -25,7 +25,7 @@ public class InfirmiereModel extends AccessDB{
 		ResultSet result;
 
 		try {
-			result = statement.executeQuery("SELECT * FROM infirmiere");
+			result = statement.executeQuery("SELECT * from infirmiere left join adresse on infirmiere.adresse_id = adresse.id;");
 			while(result.next()) {
 					infirmieres.add(new InfirmiereEntity(
 							result.getInt("id"),
@@ -34,7 +34,11 @@ public class InfirmiereModel extends AccessDB{
 							result.getString("nom"),
 							result.getString("prenom"),
 							result.getInt("telPro"),
-							result.getInt("telPerso")
+							result.getInt("telPerso"),
+							result.getString("numero"), 
+							result.getString("rue"),
+							result.getInt("cp"), 
+							result.getString("ville")
 							));	
 			}
 		} catch (SQLException e) {
